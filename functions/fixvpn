@@ -1,0 +1,5 @@
+function fixvpn() {
+    temp=$(mktemp)
+    cat /opt/cisco/anyconnect/profile/FB_ANYCONNECT.xml | sed -e 's/IPv6,//' > $temp
+    sudo mv $temp /opt/cisco/anyconnect/profile/FB_ANYCONNECT.xml
+}

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+_path=$PATH:~/fbsource/fbandroid/scripts:~/fbsource/fbandroid/scripts/fbsystrace
+
+echo $_path
