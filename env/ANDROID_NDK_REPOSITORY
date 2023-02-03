@@ -1,0 +1,3 @@
+#!/bin/bash
+require_var $NDK_HOME
+echo $(dirname $NDK_HOME)

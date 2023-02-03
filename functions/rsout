@@ -1,0 +1,20 @@
+function rsout() {
+  if [ -n "${RSYNC_AOSP_REPO}" ] && [ -n "${RSYNC_AOSP_PRODUCT}" ]; then
+    echo Syncing ${RSYNC_AOSP_PRODUCT} from ${RSYNC_AOSP_REPO}
+    rsync -avz \
+          --progress \
+          --port 42873 \
+          --delete \
+          --filter "- super.img" \
+          --filter "+ *.img" \
+          --filter "+ android-info.txt" \
+          --filter "+ provision-device" \
+          --filter "+ build_thumbprint.txt" \
+          --filter "+ *.zip" \
+          --filter "- *" \
+          localhost::${RSYNC_AOSP_REPO}/out/target/product/${RSYNC_AOSP_PRODUCT}/ \
+          ~/aospout/
+  else
+    echo Are RSYNC_AOSP_REPO and RSYNC_AOSP_PRODUCT set? >& 2
+  fi
+}

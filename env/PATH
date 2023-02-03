@@ -8,12 +8,16 @@ function add_path() { PATH="$PATH:$1"; }
 function add_pre_path() { PATH="$1:$PATH"; }
 
 add_path /usr/local/bin
-add_path "${ANDROID_HOME}/tools"
-add_path "${ANDROID_HOME}/platform-tools"
-add_path "${ANDROID_HOME}/build-tools/23.0.1"
+add_pre_path "${ANDROID_HOME}/tools/bin"
+add_pre_path "${ANDROID_HOME}/tools"
+add_pre_path "${ANDROID_HOME}/emulator"
+add_pre_path "${ANDROID_HOME}/platform-tools"
+add_pre_path "${ANDROID_HOME}/build-tools/23.0.1"
 
 add_path "/Library/Frameworks/Python.framework/Versions/3.4/bin"
 
+add_path ~/.brew/bin
+add_path ~/.brew/sbin
 
 add_pre_path "$HOME/bin"
 add_pre_path "$HOME/bash/bin"

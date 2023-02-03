@@ -1,7 +1,7 @@
 #!/bin/bash
 case $(uname -s) in
   "Darwin")
-    /usr/libexec/java_home
+    /usr/libexec/java_home -v 1.8
     ;;
   "Linux")
     readlink $(which javac) | sed "s:/bin/javac::"
